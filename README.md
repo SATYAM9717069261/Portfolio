@@ -1,32 +1,23 @@
-# SolidStart
+🛠 Code Style & ESLint Rules
+This project follows strict ESLint guidelines to ensure code quality, consistency, and readability.
+Below are the conventions we follow:
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+Naming Conventions
+  Classes & Components: PascalCase
+    Example: UserProfile, ButtonPrimary
+  Functions & Variables: camelCase
+    Example: getUserData, userProfile
+  Constants: UPPER_CASE_SNAKE
+    Example: API_BASE_URL, MAX_LIMIT
+  Files & Folders: kebab-case
+    Example: user-profile.js, auth-service
 
-## Creating a project
-
-```bash
-# create a new project in the current directory
-npm init solid@latest
-
-# create a new project in my-app
-npm init solid@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
-
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
+General ESLint Rules
+  2-space indentation (no tabs)
+  Single quotes for strings (except to avoid escaping)
+  Semi-colons required
+  No unused variables (no-unused-vars)
+  No console.log in production (no-console)
+  Max line length: 100 characters (max-len)
+  Require explicit return types in functions (@typescript-eslint/explicit-function-return-type)
+  Consistent spacing & formatting (prettier/prettier)
