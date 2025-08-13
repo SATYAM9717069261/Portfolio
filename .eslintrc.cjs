@@ -1,23 +1,58 @@
-{
-  "env": {
-    "browser": true,
-    "es2021": true
+/* eslint-env node */
+module.exports = {
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:solid/typescript",
+    "plugin:prettier/recommended",
+  ],
+  rules: {
+    // ----- Naming conventions -----
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        selector: "class",
+        format: ["PascalCase"],
+      },
+      {
+        selector: "variable",
+        format: ["camelCase", "UPPER_CASE"],
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "function",
+        format: ["camelCase"],
+      },
+      {
+        selector: "typeLike",
+        format: ["PascalCase"],
+      },
+    ],
+
+    // ----- Formatting & style -----
+    indent: ["error", 2],
+    quotes: ["error", "single", { avoidEscape: true }],
+    semi: ["error", "always"],
+    "max-len": ["error", { code: 100 }],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+
+    // ----- TS rules -----
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+
+    // ----- Prettier -----
+    "prettier/prettier": [
+      "error",
+      {
+        singleQuote: true,
+        semi: true,
+        printWidth: 100,
+        tabWidth: 2,
+        trailingComma: "none",
+      },
+    ],
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint", "prettier"],
-  "rules": {
-    "indent": ["error", 2],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "no-unused-vars": "warn",
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "max-len": ["error", { "code": 100 }],
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "prettier/prettier": "error"
-  }
-}
+};
