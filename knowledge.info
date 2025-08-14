@@ -1,0 +1,86 @@
+Render
+    render(() => <HelloWorld />, document.getElementById('app'))
+    -- require two argument
+                1. function
+                2. mounted Dom Element
+
+Show  Conditional Rendering
+        <Show when={true}
+            fallback={<div>Loading...</div>}>
+                <div>Hello World</div>
+        </Show>
+
+    -- if we have Mutiple conditional Rendering
+            const [x] = createSignal(4);
+            <Switch fallback={<p>{x()} is between 5 and 10</p>}>
+                <Match when={x() > 10}>
+                    <p>{x()} is greater than 10</p>
+                </Match>
+                <Match when={5 > x()}>
+                    <p>{x()} is less than 5</p>
+                </Match>
+            </Switch>
+
+List Render
+            const [cats, setCats] = createSignal([
+                { id: 'J---aiyznGQ', name: 'Keyboard Cat' },
+                { id: 'z_AbfPXTKms', name: 'Maru' },
+                { id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+            ]);
+
+            return (
+                <ul>
+                <For each={cats()}>{(cat, i) =>
+                    <li>
+                    <a target="_blank" href={`https://www.youtube.com/watch?v=${cat.id}`}>
+                        {i() + 1}: {cat.name}
+                    </a>
+                    </li>
+                }</For>
+                </ul>
+            );
+
+Dynamic
+    --require one argument
+                1. Conponent / String
+
+    --using Switch
+        const options = {
+            red: RedThing,
+            green: GreenThing,
+            blue: BlueThing
+        };
+        const [selected, setSelected] = createSignal("red");
+        <Switch fallback={<BlueThing />}>
+            <Match when={selected() === "red"} ><RedThing /></Match>
+            <Match when={selected() === "green"}><GreenThing /></Match>
+        </Switch>
+
+    --using Dynamic
+        <Dynamic component={options[selected()]} />
+        `No need to add mutiple Match`
+
+Z-index Deal
+        <Portal>
+            <div class="popup">
+                <h1>Popup</h1>
+                <p>Some text you might need for something or other.</p>
+            </div>
+        </Portal>
+
+ErrorBoundary
+    <ErrorBoundary fallback={err => err}>
+        <Broken />
+    </ErrorBoundary>
+
+OnMount
+    -- only run once and only in Browser
+        const [photos, setPhotos] = createSignal([]);
+        onMount(async()=>{
+            const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
+            setPhotos(await res.json())
+        })
+
+cleanUp
+    const timer = setInterval(() => setCount(count() + 1), 1000);
+    onCleanup(() => clearInterval(timer));
