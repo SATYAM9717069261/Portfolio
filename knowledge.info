@@ -84,3 +84,101 @@ OnMount
 cleanUp
     const timer = setInterval(() => setCount(count() + 1), 1000);
     onCleanup(() => clearInterval(timer));
+
+EventHandling
+    use event delegation
+        in document Solid js attached event listen   by default we have to call it only with function and argument
+        onClick={[function(){},data]}
+    --
+        const [pos,setPos] = createSignal({x:0,y:0});
+        <div onMouseMove={[function(){
+            setPos({
+                x:event.clientX,
+                y:event.clientY
+                })
+        }]}>
+            {pos().x} {pos().y}
+        </div>
+
+Style  (Animate using Program)
+     const [num, setNum] = createSignal(0);
+     setInterval(() => setNum((num() + 1) % 255), 30)
+        return <div style={{
+            color: `rgb(${num()}, 180, ${num()})`,
+        "font-weight": 800,
+        "font-size": `${num()}px`
+        }}>Some Text</div>;
+
+Classes
+        <div classList={{
+                active: isActive,
+                large: size === "lg",
+                disabled: isDisabled
+        }}>
+        [ className: true/false ]
+
+Ref (Animate SVG)
+
+    let canvas;
+
+    onMount(() => {
+    const ctx = canvas.getContext("2d");
+    let frame = requestAnimationFrame(loop);
+
+    function loop(t) {
+      frame = requestAnimationFrame(loop);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      for (let p = 0; p < imageData.data.length; p += 4) {
+        const i = p / 4;
+        const x = i % canvas.width;
+        const y = (i / canvas.height) >>> 0;
+
+        const r = 64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);
+        const g = 64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1000);
+        const b = 128;
+
+        imageData.data[p + 0] = r;
+        imageData.data[p + 1] = g;
+        imageData.data[p + 2] = b;
+        imageData.data[p + 3] = 255;
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+    }
+
+    onCleanup(() => cancelAnimationFrame(frame));
+  });
+
+  return <canvas ref={canvas} width="256" height="256" />;
+
+Spread Operator {...data}
+    function Data(props){
+        console.log(props.a,props.b,props.c)
+        }
+    <Data {...props} />
+
+Bindings / Directives (make Common behavior Programmatically)
+    function focusOnMount() {
+        this.focus();
+    }
+    function highlight() {
+        this.style.backgroundColor = "yellow";
+    }
+
+    <input use:focusOnMount use:highlight  />
+    -- no need to put a fouces logic on every input
+       we can make a common directive and use it every where
+
+
+props {play with Prop Carefully, try to dont spread props }
+    -- mergeProps / splitProps
+    function Xyz(props){
+        return <span> props.item </span>
+    }
+    use directly on Dom
+    if we want some buffer between function Args and Dom
+    function Xyz(props){
+        const merge =mergeProps({name:"fucntionName", props})
+        return <span> {merge.name} </span>
+            <span> {merge.item} </span>
+    }
