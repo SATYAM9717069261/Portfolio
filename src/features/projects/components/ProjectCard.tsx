@@ -1,4 +1,5 @@
 import type { JSX } from 'solid-js';
+import { For } from 'solid-js';
 import type { Project } from '../types/project';
 
 interface Props {
@@ -15,9 +16,7 @@ export default function ProjectCard(props: Props): JSX.Element {
           <h3 class="text-xl font-bold">{props.project.title}</h3>
           <p class="text-gray-600 dark:text-gray-300">{props.project.description}</p>
           <ul class="mt-2 list-disc list-inside text-sm text-gray-500 dark:text-gray-400">
-            {props.project.learned.map((item) => (
-              <li>{item}</li>
-            ))}
+            <For each={props.project.learned}>{(item) => <li>{item}</li>}</For>
           </ul>
           <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
             Pattern used: {props.project.pattern}

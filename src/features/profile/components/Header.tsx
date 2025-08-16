@@ -1,6 +1,6 @@
 import type { JSX } from 'solid-js';
 import ThemeToggle from '../../../shared/components/ThemeToggle';
-import { profile } from '../ data/profile';
+import { profile } from '../data/profile';
 
 export default function Header(): JSX.Element {
   return (

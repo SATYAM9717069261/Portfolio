@@ -1,9 +1,9 @@
 import type { JSX } from 'solid-js';
-import { profile } from '../ data/profile';
+import { profile } from '../data/profile';
 
 export default function Footer(): JSX.Element {
   return (
-    <footer class="p-4 bg-gray-100 dark:bg-gray-800 text-center">
+    <footer class="p-4 bg-gray-100 dark:bg-gray-800 text-center fixed bottom-0 left-0 right-0">
       <p class="text-sm">📞 {profile.phone}</p>
 
       <nav class="flex justify-center gap-4 mt-2">

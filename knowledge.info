@@ -182,3 +182,4 @@ props {play with Prop Carefully, try to dont spread props }
         return <span> {merge.name} </span>
             <span> {merge.item} </span>
     }
+-- props / children (PENDING)

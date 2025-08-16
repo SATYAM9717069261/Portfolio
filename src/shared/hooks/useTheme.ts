@@ -2,11 +2,10 @@ import { createSignal, onMount } from 'solid-js';
 import { Theme } from '../../app/theme';
 
 export default function useTheme() {
-  const [theme, setTheme] = createSignal<Theme>(
-    (localStorage.getItem('theme') as Theme) || Theme.LIGHT
-  );
+  const [theme, setTheme] = createSignal<Theme>(Theme.LIGHT);
 
   onMount(() => {
+    setTheme(localStorage.getItem('theme') as Theme);
     document.documentElement.classList.add(theme());
   });
 
