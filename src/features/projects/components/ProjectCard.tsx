@@ -1,6 +1,7 @@
 import type { JSX } from 'solid-js';
 import { For } from 'solid-js';
 import type { Project } from '../types/project';
+import { PrimaryButton } from '~/shared/components/buttons';
 
 interface Props {
   project: Project;
@@ -8,9 +9,9 @@ interface Props {
 
 export default function ProjectCard(props: Props): JSX.Element {
   return (
-    <div class="border rounded-lg shadow p-4 flex flex-col gap-4 bg-white dark:bg-gray-900">
+    <div class="border rounded-lg shadow p-4 flex flex-col gap-4 bg-white dark:bg-gray-900  justify-between">
       {/* Top section: details and image/video */}
-      <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex flex-col md:flex-row gap-4 ">
         {/* Left side: details */}
         <div class="flex-1">
           <h3 class="text-xl font-bold">{props.project.title}</h3>
@@ -38,15 +39,18 @@ export default function ProjectCard(props: Props): JSX.Element {
       </div>
 
       {/* Bottom: GitHub link */}
-      <div class="mt-auto">
-        <a
-          href={props.project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-blue-500 hover:underline"
-        >
-          View on GitHub
-        </a>
+      <div class="relative bottom-0 flex justify-between">
+        <div class="mt-auto">
+          <a
+            href={props.project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-500 hover:underline"
+          >
+            View on GitHub
+          </a>
+        </div>
+        <PrimaryButton action={() => {}}>View Project</PrimaryButton>
       </div>
     </div>
   );
