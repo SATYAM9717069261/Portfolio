@@ -1,9 +1,19 @@
 import type { JSX } from 'solid-js';
+import { createSignal, Show } from 'solid-js';
+import { Portal } from 'solid-js/web';
+
 import Header from '~/features/profile/components/Header';
 import Footer from '~/features/profile/components/Footer';
 import ProjectList from '~/features/projects/components/ProjectList';
+
 import Container from '~/shared/components/Container';
+import Overlay from '~/shared/components/windows/Overlay';
+
+import { useDialog } from '~/shared/hooks/useDialog';
+
 export default function Home(): JSX.Element {
+  const { dialogDetails, openDialog, closeDialog } = useDialog();
+
   return (
     <div class="flexCol min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white">
       <Header />
@@ -14,7 +24,13 @@ export default function Home(): JSX.Element {
             <ProjectList />
           </section>
         </Container>
+        <Portal>
+          <Show when={dialogDetails().state.isOpen}>
+            <Overlay dialogBody={dialogDetails().children} closeAction={closeDialog}></Overlay>
+          </Show>
+        </Portal>
       </main>
+
       <Footer />
     </div>
   );
