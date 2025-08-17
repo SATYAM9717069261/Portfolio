@@ -11,10 +11,11 @@ export const projects: Project[] = [
       type: 'image',
       src: '/videos/todo-demo.mp4'
     },
-    tech: ['SolidJS', 'Tailwind CSS', 'TypeScript']
+    tech: ['SolidJS', 'Tailwind CSS', 'TypeScript'],
+    ProjectDialog: null
   },
   {
-    title: 'Todo App',
+    title: 'Fox Game',
     description: 'A todo application with state management.',
     learned: ['SolidJS', 'TypeScript', 'LocalStorage API'],
     pattern: 'State Management with Signals',
@@ -23,6 +24,7 @@ export const projects: Project[] = [
       src: '/videos/todo-demo.mp4'
     },
     github: 'https://github.com/yourusername/todo-app',
-    tech: ['SolidJS', 'TypeScript', 'LocalStorage API']
+    tech: ['SolidJS', 'TypeScript', 'LocalStorage API'],
+    ProjectDialog: null
   }
 ];

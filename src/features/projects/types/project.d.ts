@@ -1,3 +1,4 @@
+import { JSXElement } from 'solid-js';
 export type MediaType = 'image' | 'video';
 
 export interface ProjectMedia {
@@ -13,4 +14,5 @@ export interface Project {
   tech: string[];
   github: string;
   mediaType?: ProjectMedia;
+  ProjectDialog: JSXElement;
 }

@@ -1,13 +1,16 @@
-import type { JSX } from 'solid-js';
+import type { JSXElement } from 'solid-js';
 import { For } from 'solid-js';
 import type { Project } from '../types/project';
 import { PrimaryButton } from '~/shared/components/buttons';
+import FoxGame from '../Game/foxGame';
+import { DialogState } from '~/shared/components/types/Dialogs';
 
 interface Props {
   project: Project;
+  openDialog: (body: JSXElement, state: DialogState) => void;
 }
 
-export default function ProjectCard(props: Props): JSX.Element {
+export default function ProjectCard(props: Props): JSXElement {
   return (
     <div class="border rounded-lg shadow p-4 flex flex-col gap-4 bg-white dark:bg-gray-900  justify-between">
       {/* Top section: details and image/video */}
@@ -50,7 +53,9 @@ export default function ProjectCard(props: Props): JSX.Element {
             View on GitHub
           </a>
         </div>
-        <PrimaryButton action={() => {}}>View Project</PrimaryButton>
+        <PrimaryButton action={() => props.openDialog(<FoxGame />, { isOpen: true })}>
+          View Project
+        </PrimaryButton>
       </div>
     </div>
   );

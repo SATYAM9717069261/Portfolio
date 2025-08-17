@@ -21,7 +21,7 @@ export default function Home(): JSX.Element {
         <Container>
           <section class="mb-12">
             <h2 class="text-3xl font-bold mb-6">Featured Projects</h2>
-            <ProjectList />
+            <ProjectList openDialog={openDialog} />
           </section>
         </Container>
         <Portal>

@@ -10,7 +10,7 @@ export function useDialog() {
         state: { ...dialogDetails().state, isOpen: false }
       }),
     state: {
-      isOpen: true
+      isOpen: false
     },
     children: null
   });
@@ -20,7 +20,6 @@ export function useDialog() {
   };
 
   const closeDialog = () => {
-    console.log(' Trigegr ');
     setDialogDetails((prev) => ({ ...prev, state: { ...prev.state, isOpen: false } }));
   };
 
