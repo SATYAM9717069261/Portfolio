@@ -53,7 +53,10 @@ export default function ProjectCard(props: Props): JSXElement {
             View on GitHub
           </a>
         </div>
-        <PrimaryButton action={() => props.openDialog(<FoxGame />, { isOpen: true })}>
+
+        <PrimaryButton
+          action={() => props.openDialog(props.project.ProjectDialog, { isOpen: true })}
+        >
           View Project
         </PrimaryButton>
       </div>

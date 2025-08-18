@@ -11,7 +11,6 @@ type OverlayHeaderProps = {
 };
 
 export default function Overlay(props: OverlayProps): JSXElement {
-  console.log(' dialog => ', props.dialogBody);
   return (
     <div
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"

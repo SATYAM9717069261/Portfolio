@@ -1,4 +1,5 @@
 import type { Project } from '../types/project';
+import FoxGame from '~/features/projects/Game/foxGame';
 
 export const projects: Project[] = [
   {
@@ -25,6 +26,6 @@ export const projects: Project[] = [
     },
     github: 'https://github.com/yourusername/todo-app',
     tech: ['SolidJS', 'TypeScript', 'LocalStorage API'],
-    ProjectDialog: null
+    ProjectDialog: <FoxGame />
   }
 ];
