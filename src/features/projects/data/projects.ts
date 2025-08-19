@@ -26,6 +26,6 @@ export const projects: Project[] = [
     },
     github: 'https://github.com/yourusername/todo-app',
     tech: ['SolidJS', 'TypeScript', 'LocalStorage API'],
-    ProjectDialog: <FoxGame />
+    ProjectDialog: FoxGame
   }
 ];

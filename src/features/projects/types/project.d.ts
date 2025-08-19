@@ -14,5 +14,5 @@ export interface Project {
   tech: string[];
   github: string;
   mediaType?: ProjectMedia;
-  ProjectDialog: JSXElement | null;
+  ProjectDialog: Object | null;
 }
