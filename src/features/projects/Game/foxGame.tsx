@@ -24,7 +24,7 @@ function FoxGame(): JSXElement {
           <div class="foreground-rain"></div>
           <div class="frame"></div>
           <div class="modal">
-            <div class="modal-inner">Press Button to Start</div>
+            <div class="modal-inner">Press the middle button to start</div>
           </div>
           <div class="buttons">
             <button class="btn left-btn"></button>
