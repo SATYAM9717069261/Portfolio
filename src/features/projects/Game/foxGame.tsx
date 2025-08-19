@@ -9,7 +9,9 @@ import startGame from './initGame';
 function FoxGame(): JSXElement {
   onMount(() => {
     startGame();
-    onCleanup(() => {});
+    onCleanup(() => {
+      // pending Clean
+    });
   });
 
   return (
