@@ -23,7 +23,6 @@ const gameState = {
 
   tick() {
     this.clock++;
-    console.log(' CLOCK  => ', this.clock);
     if (this.clock === this.wakeTime) {
       this.wake();
     } else if (this.clock === this.sleepTime) {
@@ -44,7 +43,6 @@ const gameState = {
   },
 
   startGame() {
-    console.log(' GAME START');
     this.current = 'HATCHING';
     this.wakeTime = this.clock + 3; // ake up time after 3
     modFox('egg');
@@ -52,8 +50,7 @@ const gameState = {
   },
 
   wake() {
-    console.log(' WAKE ');
-    this.current = 'IDLIGN';
+    this.current = 'IDLING';
     this.wakeTime = -1;
     modFox('idling');
     this.scene = Math.random() > RAIN_PROBABILITY ? 0 : 1;
@@ -95,7 +92,6 @@ const gameState = {
   },
 
   die() {
-    console.log('Die');
     this.current = 'DEAD';
     modScene('dead');
     modFox('dead');
@@ -123,8 +119,6 @@ const gameState = {
         this.feed();
         break;
     }
-
-    console.log(icon);
   },
 
   changeWeather() {
@@ -135,7 +129,6 @@ const gameState = {
   },
 
   cleanUpPoop() {
-    console.log(' CLEAN UP POOP ');
     if (this.current == 'POOPING') {
       return;
     } else {
@@ -149,7 +142,6 @@ const gameState = {
   dead() {},
 
   feed() {
-    console.log(' FEED ');
     if (this.current === 'HUNGRY') {
       this.current = 'FEEDING';
       this.deadTime = -1;

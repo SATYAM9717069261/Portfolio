@@ -17,15 +17,16 @@ export const projects: Project[] = [
   },
   {
     title: 'Fox Game',
-    description: 'A todo application with state management.',
-    learned: ['SolidJS', 'TypeScript', 'LocalStorage API'],
-    pattern: 'State Management with Signals',
+    description:
+      'A virtual pet game where the fox cycles through states like sleeping, hungry, eating, pooping, celebrating, and dead. Built using a custom finite state machine with JavaScript timers and event handling.',
+    learned: ['Finite State Machines', 'Encapsulation in JavaScript', 'Game Loop with Timers'],
+    pattern: 'State Management with Object-based FSM',
     mediaType: {
       type: 'video',
-      src: '/videos/todo-demo.mp4'
+      src: 'https://youtu.be/nwr-DYoME_E'
     },
-    github: 'https://github.com/yourusername/todo-app',
-    tech: ['SolidJS', 'TypeScript', 'LocalStorage API'],
+    github: 'https://github.com/SATYAM9717069261/Portfolio/tree/main/src/features/projects/Game',
+    tech: ['JavaScript', 'HTML', 'CSS'],
     ProjectDialog: FoxGame
   }
 ];
