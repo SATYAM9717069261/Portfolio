@@ -4,6 +4,6 @@ export default defineConfig({
   ssr: false,
   server: {
     preset: 'static',
-    baseURL: process.env.NODE_ENV === 'production' ? '/Portfolio/' : '/'
+    baseURL: process.env.NODE_ENV === 'production' ? '/' : '/'
   }
 });
