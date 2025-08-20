@@ -19,6 +19,7 @@ const gameState = {
   poopTime: -1,
   timeToStartCelebrating: -1,
   timeToEndCelebrating: -1,
+  scene: -1,
 
   tick() {
     this.clock++;
@@ -63,7 +64,7 @@ const gameState = {
   },
 
   sleep() {
-    this.state = 'SLEEP';
+    this.current = 'SLEEP';
     modFox('sleep');
     modScene('night');
     this.clearTime();
@@ -89,7 +90,7 @@ const gameState = {
   poop() {
     this.current = 'POOPING';
     this.poopTime = -1;
-    this.dieTime = getNextDeathTime(this.clock);
+    this.deadTime = getNextDeathTime(this.clock);
     modFox('pooping');
   },
 
@@ -102,7 +103,7 @@ const gameState = {
     writeModal('FOX DEAD : (PRESS MIDDLE BUTTON)');
   },
 
-  handleUserAction(icon) {
+  handleUserAction(icon: string) {
     if (['POOPING', 'SLEEP', 'FEEDING', 'CELEBRATING', 'HATCHING'].includes(this.current)) {
       return;
     }
@@ -135,7 +136,7 @@ const gameState = {
 
   cleanUpPoop() {
     console.log(' CLEAN UP POOP ');
-    if (!this.current == 'POOPING') {
+    if (this.current == 'POOPING') {
       return;
     } else {
       this.deadTime = -1;
