@@ -1,4 +1,4 @@
-import type { Project } from '../types/project';
+import type { Project } from '../types/game';
 import FoxGame from '~/features/projects/Game/foxGame';
 
 export const projects: Project[] = [
