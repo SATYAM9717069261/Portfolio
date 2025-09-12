@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function ProjectCard(props: Props): JSXElement {
+  console.log(' details = .', props.project.mediaType?.src);
   return (
     <div class="border rounded-lg shadow p-4 flex flex-col gap-4 bg-white dark:bg-gray-900  justify-between">
       {/* Top section: details and image/video */}
@@ -36,7 +37,14 @@ export default function ProjectCard(props: Props): JSXElement {
               class="w-full h-auto rounded"
             />
           ) : (
-            <video src={props.project.mediaType?.src} controls class="w-full rounded" />
+            <iframe
+              className="w-full rounded"
+              src={props.project.mediaType?.src.replace('watch?v=', 'embed/')}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           )}
         </div>
       </div>
