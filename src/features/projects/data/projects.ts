@@ -28,5 +28,25 @@ export const projects: Project[] = [
     github: 'https://github.com/SATYAM9717069261/Portfolio/tree/main/src/features/projects/Game',
     tech: ['JavaScript', 'HTML', 'CSS'],
     ProjectDialog: FoxGame
+  },
+  {
+    title: 'Music App',
+    description:
+      'A Spotify-like music streaming app with features such as play, pause, next/previous track, search for songs and artists, and user authentication (login & signup).',
+    learned: [
+      'Full-stack development with Next.js & Prisma',
+      'Implementing authentication and session management',
+      'Building an audio player with play/pause/next/previous functionality',
+      'Styling responsive UI with Tailwind CSS',
+      'Deploying full-stack apps on Vercel'
+    ],
+    pattern: 'Component-based architecture with Next.js API routes',
+    mediaType: {
+      type: 'video',
+      src: 'https://youtu.be/1gJbvLZKWsM'
+    },
+    github: 'https://github.com/SATYAM9717069261/Spotify_Clone.git',
+    tech: ['Next.js', 'Tailwind CSS', 'Prisma', 'Vercel'],
+    ProjectDialog: null
   }
 ];
