@@ -61,12 +61,15 @@ export default function ProjectCard(props: Props): JSXElement {
             View on GitHub
           </a>
         </div>
-
-        <PrimaryButton
-          action={() => props.openDialog(props.project.ProjectDialog, { isOpen: true })}
-        >
-          View Project
-        </PrimaryButton>
+        {typeof props.project.ProjectDialog == 'string' ? (
+          <a href={props.project.ProjectDialog}>View Project</a>
+        ) : (
+          <PrimaryButton
+            action={() => props.openDialog(props.project.ProjectDialog, { isOpen: true })}
+          >
+            View Project
+          </PrimaryButton>
+        )}
       </div>
     </div>
   );
